@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шелег А.С. | Кандидатский дифзачет | Механика и математическое моделирование</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --gray: #7f8c8d;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .university-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .author-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .author-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .author-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .author-card p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-card i {
+            width: 20px;
+            color: var(--secondary);
+        }
+
+        .photo-placeholder {
+            width: 180px;
+            height: 240px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: var(--shadow);
+            border: 5px solid white;
+        }
+
+        .photo-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .welcome-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .welcome-message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .welcome-message::before, .welcome-message::after {
+            content: "“";
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: 0;
+        }
+
+        .welcome-message::after {
+            content: "”";
+            left: auto;
+            right: 0;
+            top: auto;
+            bottom: -40px;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--success);
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .wish-card h3 {
+            color: var(--success);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .materials-section {
+            margin-bottom: 3rem;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .material-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .material-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .card-body li i {
+            color: var(--success);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--secondary), #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #2980b9, var(--secondary));
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, var(--gray), #95a5a6);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #95a5a6, var(--gray));
+        }
+
+        .research-summary {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .research-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            background: #e9ecef;
+            transform: translateY(-5px);
+        }
+
+        .highlight-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .author-info {
+                flex-direction: column;
+            }
+            
+            .photo-placeholder {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .welcome-section, .research-summary {
+                padding: 2rem;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="university-badge">
+                    <i class="fas fa-university"></i> Белорусский государственный университет
+                </div>
+                <h1>Кандидатский дифференцированный зачет</h1>
+                <p class="subtitle">По дисциплине «Основы информационных технологий»</p>
+                
+                <div class="author-info">
+                    <div class="author-card">
+                        <h2>Шелег Анна Сергеевна</h2>
+                        <p><i class="fas fa-user-graduate"></i> Магистрант кафедры Теоретической и прикладной механики</p>
+                        <p><i class="fas fa-university"></i> Механико-математический факультет</p>
+                        <p><i class="fas fa-book"></i> Специальность: 7-06-0533-06 Теоретическая и прикладная механика</p>
+                        <p><i class="fas fa-envelope"></i> mmf.shelegas@bsu.by</p>
+                        <p><i class="fas fa-calendar-alt"></i> Минск, 2025 год</p>
+                    </div>
+                    
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2 class="section-title">Добро пожаловать!</h2>
+            <div class="welcome-message">
+                <p>Здравствуйте, уважаемые члены комиссии и посетители!</p>
+                <p>Этот сайт создан для представления материалов кандидатского дифференцированного зачета по дисциплине «Основы информационных технологий».</p>
+                <p>Здесь вы найдете реферат и презентацию по теме моей научной работы, посвященной использованию информационных технологий при решении задачи идентификации эллиптического включения в твердом теле.</p>
+            </div>
+            
+            <div class="wish-card">
+                <h3><i class="fas fa-star"></i> Пожелание посетителям</h3>
+                <p>Желаю вам интересного и продуктивного знакомства с материалами моей работы. Надеюсь, что представленные исследования и результаты окажутся полезными и познавательными. Буду рада получить ваши отзывы и предложения!</p>
+                <p style="margin-top: 1rem; font-style: italic; color: var(--primary);">С уважением, Анна Шелег</p>
+            </div>
+        </section>
+
+        <!-- Research Materials Section -->
+        <section class="materials-section">
+            <h2 class="section-title">Материалы исследования</h2>
+            <div class="materials-grid">
+                <!-- Реферат -->
+                <div class="material-card">
+                    <div class="card-header">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Реферат</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Тема:</strong> Использование информационных технологий при решении задачи идентификации эллиптического включения в твердом теле</p>
+                        <p><strong>Объём:</strong> 13 страниц</p>
+                        
+                        <h4>Ключевые разделы:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Введение и актуальность</li>
+                            <li><i class="fas fa-check"></i> Аналитический обзор литературы</li>
+                            <li><i class="fas fa-check"></i> Методология исследования</li>
+                            <li><i class="fas fa-check"></i> Результаты и практическая значимость</li>
+                            <li><i class="fas fa-check"></i> Заключение и выводы</li>
+                        </ul>
+                        
+                        <a href="Реферат.docx" class="btn" download>
+                            <i class="fas fa-download"></i> Скачать реферат (.docx)
+                        </a>
+                        <a href="Реферат.docx" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-eye"></i> Просмотреть
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Презентация -->
+                <div class="material-card">
+                    <div class="card-header">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Презентация</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Формат:</strong> PDF-презентация (10 слайдов)</p>
+                        <p><strong>Назначение:</strong> Защита кандидатского дифзачета</p>
+                        
+                        <h4>Содержание презентации:</h4>
+                        <ul>
+                            <li><i class="fas fa-slideshare"></i> Титульный слайд и содержание</li>
+                            <li><i class="fas fa-slideshare"></i> Актуальность исследования</li>
+                            <li><i class="fas fa-slideshare"></i> Объект и предмет исследования</li>
+                            <li><i class="fas fa-slideshare"></i> Методология и результаты</li>
+                            <li><i class="fas fa-slideshare"></i> Практическая значимость и выводы</li>
+                        </ul>
+                        
+                        <a href="презентация.pdf" class="btn" download>
+                            <i class="fas fa-download"></i> Скачать презентацию (.pdf)
+                        </a>
+                        <a href="презентация.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-eye"></i> Просмотреть
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Summary Section -->
+        <section class="research-summary">
+            <h2 class="section-title">Ключевые результаты исследования</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                В работе представлена методология применения современных информационных технологий 
+                для решения обратной задачи механики - идентификации эллиптического включения в твердом теле.
+            </p>
+            
+            <div class="research-highlights">
+                <div class="highlight-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Скорость анализа</h4>
+                    <span class="number">270 000x</span>
+                    <p>Ускорение по сравнению с традиционными методами</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Точность идентификации</h4>
+                    <span class="number">3.8%</span>
+                    <p>Средняя относительная ошибка</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Время предсказания</h4>
+                    <span class="number">&lt; 0.1 с</span>
+                    <p>Быстрое решение обратной задачи</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Коэффициент детерминации</h4>
+                    <span class="number">R² = 0.98</span>
+                    <p>Высокая объясняющая способность модели</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>Технологический стек:</strong> ANSYS, Python, TensorFlow/Keras, Docker, Kubernetes, FastAPI, Grafana</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title">Контактная информация</h2>
+            <p style="margin-bottom: 2rem;">Для связи, вопросов и отзывов</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Электронная почта</h4>
+                        <p>mmf.shelegas@bsu.by</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div>
+                        <h4>Университет</h4>
+                        <p>БГУ, Механико-математический факультет</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>О исследовании</h3>
+                    <ul>
+                        <li><a href="#research">Тема исследования</a></li>
+                        <li><a href="#methodology">Методология</a></li>
+                        <li><a href="#results">Результаты</a></li>
+                        <li><a href="#conclusions">Выводы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Материалы</h3>
+                    <ul>
+                        <li><a href="Реферат.docx">Реферат (.docx)</a></li>
+                        <li><a href="презентация.pdf">Презентация (.pdf)</a></li>
+                        <li><a href="#additional">Дополнительные материалы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Автор</h3>
+                    <ul>
+                        <li>Шелег Анна Сергеевна</li>
+                        <li>Магистрант кафедры ТПМ</li>
+                        <li>Механико-математический факультет БГУ</li>
+                        <li>Минск, 2025</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#welcome">Главная страница</a></li>
+                        <li><a href="#materials">Материалы исследования</a></li>
+                        <li><a href="#contact">Контактная информация</a></li>
+                        <li><a href="https://www.bsu.by" target="_blank">Сайт БГУ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Шелег Анна Сергеевна. Кандидатский дифференцированный зачет по дисциплине «Основы информационных технологий».</p>
+                <p>Белорусский государственный университет, Механико-математический факультет.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">Все права защищены. Материалы представлены для ознакомления.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('footer a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Simple download counter (for demo purposes)
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if(this.textContent.includes('Скачать')) {
+                    const fileName = this.getAttribute('href');
+                    console.log(`Файл "${fileName}" был скачан`);
+                    
+                    // В реальном приложении здесь можно добавить отправку статистики на сервер
+                }
+            });
+        });
+        
+        // Display current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearSpan = document.querySelector('.current-year');
+            if(yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
